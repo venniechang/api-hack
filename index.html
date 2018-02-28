@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1">
+	<title>Currency Converter</title>
+</head>
+
+<body>
+    <div class="title-header">
+        <h1>Currency Conversion</h1>
+    </div>
+    <section>
+    <div class="input-data" data-page="inputs">
+        <form class="form" id="user-data">
+            <div class="user-selection">
+                <label for="starting-currency">From Currency:</label>
+                     <select type="dropdown" id="starting-currency" placeholder="USD" required>
+                        <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                        <option value="JPY">JPY</option>
+                        <option value="HKD">HKD</option>
+                        <option value="CZK">CZK</option>
+                        <option value="GBP">GBP</option>
+                        <option value="NZD">NZD</option>
+                        <option value="SGD">SGD</option>
+                    </select>
+            </div>
+            <div class="user-selection">
+                <label for="amount">Amount:</label>
+                <input type="text" id="input-amount" placeholder="enter an amount to convert" required>
+            </div>
+            <fieldset>
+                <legend>To Currency:</legend>
+                <input id="currency-1" name="symbols" type="checkbox" value="USD">
+                <label for="currency-1">USD</label>
+                <input id="currency-2" name="symbols" type="checkbox" value="EUR">
+                <label for="currency-2">EUR</label>
+                <input id="currency-3" name="symbols" type="checkbox" value="JPY">
+                <label for="currency-3">JPY</label>
+                <input id="currency-4" name="symbols" type="checkbox" value="HKD">
+                <label for="currency-4">HKD</label>
+                
+            </fieldset> 
+            <div class="button">
+                <button type="submit" class="convert-button">Convert</button>
+            </div>
+        </form>
+    </div>
+    </section>
+
+    <div class="display-results">Placeholder</div>
+
+    <div class="button">
+            <button type="submit" class="find-banks">Find Nearby Banks</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
