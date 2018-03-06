@@ -21,7 +21,8 @@ $.getJSON(currencyURL, params, callback)
 })*/
 
 function generateCurrencyCard(data, symbol) {
-    return `<div class = "card">${symbol}: ${data.rates[symbol]}</div>`;
+    const currentRoundedRate = data.rates[symbol].toFixed(2);
+    return `<div class = "card">${symbol}: ${currentRoundedRate}</div>`;
 }
 
 function showCurrencyData(data) { // want to display results to DOM
@@ -53,8 +54,8 @@ function handleFormSubmit() {
         event.preventDefault();
         const userAmount = $("#input-amount").val();
         const baseCurrency = $("#starting-currency").val();
-        const targetCurrencies = "GBP,AUD,CNY,CAD,CZK"
-        getCurrencyData(baseCurrency, function(data){
+        const targetCurrencies = $("input[name=symbols]:checked");
+        getCurrencyData(baseCurrency, targetCurrencies, function(data){
             storeCurrencyData(data);
             convertCurrencyAmount(STORE.data, STORE.multiplier);
             showCurrencyData(STORE.data);
@@ -69,6 +70,17 @@ function handleAmountChange() {
     })
 
 }
+
+function buildSymbolString(symbols){
+
+    const symbolString = "";
+
+
+}
+
+//function roundCurrencyDigits(data){
+  //  console.log(data.rates);
+//}
 handleAmountChange();
 handleFormSubmit();
-
+//roundCurrencyDigits();
