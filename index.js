@@ -54,8 +54,10 @@ function handleFormSubmit() {
         event.preventDefault();
         const userAmount = $("#input-amount").val();
         const baseCurrency = $("#starting-currency").val();
-        const targetCurrencies = $("input[name=symbols]:checked");
-        getCurrencyData(baseCurrency, targetCurrencies, function(data){
+        const targetCurrencies = $("input[name=symbols]:checked"); //buildSymbolString(symbols); 
+        const symbolString = buildSymbolString(targetCurrencies);
+        console.log(symbolString);
+        getCurrencyData(baseCurrency, symbolString, function(data){
             storeCurrencyData(data);
             convertCurrencyAmount(STORE.data, STORE.multiplier);
             showCurrencyData(STORE.data);
@@ -73,9 +75,15 @@ function handleAmountChange() {
 
 function buildSymbolString(symbols){
 
-    const symbolString = "";
+    let symbolString = "";
+    symbols.each(function(index, element) {
+        symbolString += element.value;
 
-
+        if (!(index == symbols.length - 1)) {
+            symbolString += ",";
+        }
+    })
+    return symbolString;
 }
 
 //function roundCurrencyDigits(data){
