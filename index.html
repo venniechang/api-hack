@@ -55,9 +55,14 @@
             <button type="submit" class="find-banks">Find Nearby Banks</button>
     </div>
 
+    <h3>Google Maps</h3>
+    <input id="bank-input" class="controls" type="text" placeholder="Banks">
+    <div id="map"></div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="index.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCikYUxmjYBHfC73yZgYi8HueHD8YmjqJ0&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCikYUxmjYBHfC73yZgYi8HueHD8YmjqJ0&callback=initMap&libraries=places"></script>
+    
 </script>
 </body>
 </html>
