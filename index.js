@@ -32,7 +32,6 @@ function showCurrencyData(data) { // want to display results to DOM
     output += generateCurrencyCard(data, symbol);
     }
     $(".display-results").html(output);
-    
 }
 
 function storeCurrencyData(data) {
@@ -86,13 +85,23 @@ function buildSymbolString(symbols){
     return symbolString;
 }
 
+function searchBanks(){
+    $(".find-banks").on("submit", function(event){
+        initMap();
+        var placesService = google.maps.places.PlacesService(map);
+    })
+    
+}
+
+//$(document).on('submit','form.remember',function(){ // code });
+
 handleAmountChange();
 handleFormSubmit();
 
 function initMap() {
     var uluru = {lat: 34.0522, lng: -118.2437};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+          zoom: 15,
           center: uluru,
           mapTypeId: 'roadmap'
         });
@@ -102,20 +111,29 @@ function initMap() {
         });
         console.log(marker);
 
+    var service = new google.maps.places.PlacesService(map);
+    service.nearbySearch({
+        location: uluru,
+        radius: 500,
+        type: ['bank']
+    }, callback);
+
+/*
     // Create the Search box and link it to the UI element    
     var input = document.getElementById("bank-input");
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
+*/
     // Bias the SearchBox results towards current map's viewport
-    map.addListener("bounds_changed", function(){
+  /*  map.addListener("bounds_changed", function(){
         searchBox.setBounds(map.getBounds());
     });
 
     var markers = [];
-
+*/
     //Listen for the event fired when the user selects a prediction and retrieve more details for that place
-    searchBox.addListener("places_changed", function(){
+    /*
+        searchBox.addListener("places_changed", function(){
         var places = searchBox.getPlaces();
 
         if (places.length == 0) {
@@ -162,4 +180,26 @@ function initMap() {
         });
         map.fitBounds(bounds);
    });
+   */
+}
+
+function callback(results, status){
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i< results.length; i++) {
+            createMarker(results[i]);
+        }
+    }
+}
+
+function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+    });
 }
