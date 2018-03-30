@@ -98,17 +98,23 @@ function searchBanks(){
 handleAmountChange();
 handleFormSubmit();
 
+var map;
+var infowindow;
+
 function initMap() {
     var uluru = {lat: 34.0522, lng: -118.2437};
-        var map = new google.maps.Map(document.getElementById('map'), {
+        map = new google.maps.Map(document.getElementById('map'), {
           zoom: 15,
           center: uluru,
           mapTypeId: 'roadmap'
         });
+
         var marker = new google.maps.Marker({
           position: uluru,
           map: map
         });
+        infowindow = new google.maps.InfoWindow();
+
         console.log(marker);
 
     var service = new google.maps.places.PlacesService(map);
@@ -118,21 +124,21 @@ function initMap() {
         type: ['bank']
     }, callback);
 
-/*
+
     // Create the Search box and link it to the UI element    
     var input = document.getElementById("bank-input");
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-*/
+
     // Bias the SearchBox results towards current map's viewport
-  /*  map.addListener("bounds_changed", function(){
+    map.addListener("bounds_changed", function(){
         searchBox.setBounds(map.getBounds());
     });
 
     var markers = [];
-*/
+
     //Listen for the event fired when the user selects a prediction and retrieve more details for that place
-    /*
+    
         searchBox.addListener("places_changed", function(){
         var places = searchBox.getPlaces();
 
@@ -180,7 +186,6 @@ function initMap() {
         });
         map.fitBounds(bounds);
    });
-   */
 }
 
 function callback(results, status){
