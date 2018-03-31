@@ -99,7 +99,7 @@ const STORE = {
    handleFormSubmit();
    
    var map;
-   var infowindow;
+   var infoWindow;
    var uluru;
    
    function initMap() {
@@ -109,7 +109,7 @@ const STORE = {
              center: uluru,
              mapTypeId: 'roadmap'
            });
-           var infoWindow = new google.maps.InfoWindow({map: map});
+           infoWindow = new google.maps.InfoWindow({map: map});
    
            //var marker = new google.maps.Marker({
             // position: uluru,
@@ -243,7 +243,7 @@ const STORE = {
        });
    
        google.maps.event.addListener(marker, 'click', function() {
-           infowindow.setContent(place.name);
-           infowindow.open(map, this);
+           infoWindow.setContent(place.name);
+           infoWindow.open(map, this);
        });
    }
