@@ -3,6 +3,7 @@
 <head >
     <link rel="stylesheet" type="text/css" href="main.css">
     <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Chivo" rel="stylesheet">
 	<title>Currency Converter</title>
 </head>
 
@@ -40,23 +41,35 @@
                 <label for="currency-3">JPY</label>
                 <input id="currency-4" name="symbols" type="checkbox" value="HKD">
                 <label for="currency-4">HKD</label>
+                <input id="currency-4" name="symbols" type="checkbox" value="GBP">
+                <label for="currency-4">GBP</label>
+                <input id="currency-4" name="symbols" type="checkbox" value="CAD">
+                <label for="currency-4">CAD</label>
+                <input id="currency-4" name="symbols" type="checkbox" value="KRW">
+                <label for="currency-4">KRW</label>
+                <input id="currency-4" name="symbols" type="checkbox" value="CNY">
+                <label for="currency-4">CNY</label>
                 
-            </fieldset> 
+            </fieldset>
+        <div class="both-buttons">    
             <div class="button">
                 <button type="submit" class="convert-button">Convert</button>
             </div>
+            <div class="button">
+                <button type="submit" class="find-banks">Find Nearby Banks</button>
+            </div>
+        </div>     
         </form>
     </div>
+
     </section>
 
-    <div class="display-results">Placeholder</div>
 
-    <div class="button">
-            <button type="submit" class="find-banks">Find Nearby Banks</button>
-    </div>
+<div class = "card">
+    <div class="display-results"></div>
+</div>
 
-    <h3>Google Maps</h3>
-    <input id="bank-input" class="controls" type="text" placeholder="Banks">
+    <!--<input id="bank-input" class="controls" type="text" placeholder="Banks">-->
     <div id="map"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
