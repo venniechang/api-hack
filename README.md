@@ -3,7 +3,7 @@
 <p><a href="https://www.thinkful.com/">Thinkful</a> API Project - An application that makes AJAX calls to <a href="www.fixer.io">Fixer.io</a>
 and <a href="https://developers.google.com/maps/documentation/">Google Maps</a> API.
 
-![homepage](https://github.com/venniechang/node-capstone-project/blob/master/public/images/homepage.jpg)
+![homepage](https://i.imgur.com/EhHW22J.jpg)
 
 <h2>What is Currency Converter?</h2>
 <p>This website is for travelers who want to see the current eha.</p>
