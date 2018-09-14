@@ -99,3 +99,18 @@ body {
     padding: 20px;
     border-radius: 25px;
 }
+
+@media only screen and (max-width: 600px) {
+    .title-header {
+        font-size: 1em;
+    }
+
+    .form-container {
+        width: 80%
+    }
+
+    #map {
+        width: 100%
+    }
+
+}
