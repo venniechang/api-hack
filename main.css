@@ -114,3 +114,11 @@ body {
     }
 
 }
+
+.api-disclaimer {
+    margin: 0 auto 0 auto;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Chivo', sans-serif;
+    padding: 20px;
+}
